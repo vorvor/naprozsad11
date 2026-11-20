@@ -1,0 +1,21 @@
+<div class="layout-center flat-page">
+  <header class="header" role="banner">
+    {{ page.header }}
+    {% include '@naprozsa/partials/header-contact.html.twig' %}
+  </header>
+  {% if page.navigation %}<div class="navigation">{{ page.navigation }}</div>{% endif %}
+  <div class="front-wave" aria-hidden="true"></div>
+  <main class="flat-page__main" role="main">
+    <a id="main-content" tabindex="-1"></a>
+    {{ page.content.naprozsa_page_title }}
+    {{ page.highlighted }}
+    {{ page.help }}
+    {{ page.content|without('naprozsa_page_title') }}
+    {% if page.sidebar_first %}<aside class="sidebar sidebar-first">{{ page.sidebar_first }}</aside>{% endif %}
+    {% if page.sidebar_second %}<aside class="sidebar sidebar-second">{{ page.sidebar_second }}</aside>{% endif %}
+  </main>
+  <div class="front-wave" aria-hidden="true"></div>
+  {% include '@naprozsa/partials/front-contact.html.twig' %}
+  {% if page.footer %}<footer class="site-footer" role="contentinfo">{{ page.footer }}</footer>{% endif %}
+</div>
+{{ page.bottom }}

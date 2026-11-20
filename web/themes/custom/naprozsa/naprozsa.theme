@@ -6,3 +6,13 @@
 function naprozsa_preprocess_page(array &$variables): void {
   $variables['naprozsa_default_front_listing'] = \Drupal::routeMatch()->getRouteName() === 'view.frontpage.page_1';
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for pages.
+ */
+function naprozsa_theme_suggestions_page_alter(array &$suggestions, array $variables): void {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (\Drupal::routeMatch()->getRouteName() === 'entity.node.canonical' && $node instanceof \Drupal\node\NodeInterface && $node->bundle() === 'flat') {
+    $suggestions[] = 'page__node__flat';
+  }
+}

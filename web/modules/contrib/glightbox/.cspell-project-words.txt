@@ -1,0 +1,9 @@
+Abramenko
+autopause
+configmanager
+glightbox
+levmyshkin
+lightbox
+plyr
+seektime
+zoomable

@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a formatted GLightbox image field.
+ *
+ * Available variables:
+ * - responsive_image: A collection of responsive image data.
+ * - url: An URL the image can be linked to.
+ * - attributes: Link attributes.
+ *
+ * @see template_preprocess_glightbox_responsive_formatter()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<a href="{{ url }}" role="button" {{ attributes }}>
+  {{ responsive_image }}
+</a>

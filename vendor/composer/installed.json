@@ -1475,6 +1475,58 @@
             "install-path": null
         },
         {
+            "name": "drupal/glightbox",
+            "version": "1.0.21",
+            "version_normalized": "1.0.21.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/glightbox.git",
+                "reference": "1.0.21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/glightbox-1.0.21.zip",
+                "reference": "1.0.21",
+                "shasum": "f754e7ff8a53b7a54c1724ef222d69777a59f31e"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10 || ^11",
+                "levmyshkin/dom_purify": "^3.2",
+                "levmyshkin/glightbox": "^3.2",
+                "levmyshkin/plyr": "^3.7"
+            },
+            "published-time": "2026-10-12T07:44:19+00:00",
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.21",
+                    "datestamp": "1791791079",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "levmyshkin",
+                    "homepage": "https://www.drupal.org/user/1079574"
+                }
+            ],
+            "description": "GLightbox is a pure javascript lightbox.",
+            "homepage": "https://www.drupal.org/project/glightbox",
+            "support": {
+                "source": "https://git.drupalcode.org/project/glightbox",
+                "issues": "https://www.drupal.org/project/issues/glightbox"
+            },
+            "install-path": "../../web/modules/contrib/glightbox"
+        },
+        {
             "name": "drupal/views_slideshow",
             "version": "5.0.1",
             "version_normalized": "5.0.1.0",
@@ -2598,6 +2650,119 @@
                 }
             ],
             "install-path": "../league/container"
+        },
+        {
+            "name": "levmyshkin/dom_purify",
+            "version": "3.4.17",
+            "version_normalized": "3.4.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/levmyshkin/dom_purify.git",
+                "reference": "c924208144a2643f28ca9977c5222eb687ffc80e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/levmyshkin/dom_purify/zipball/c924208144a2643f28ca9977c5222eb687ffc80e",
+                "reference": "c924208144a2643f28ca9977c5222eb687ffc80e",
+                "shasum": ""
+            },
+            "time": "2026-10-28T10:00:39+00:00",
+            "published-time": "2026-10-28T10:02:25+00:00",
+            "type": "drupal-library",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "DOMPurify is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG",
+            "support": {
+                "source": "https://github.com/levmyshkin/dom_purify/tree/3.4.17"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/cure53",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../../web/libraries/dom_purify"
+        },
+        {
+            "name": "levmyshkin/glightbox",
+            "version": "3.3.1",
+            "version_normalized": "3.3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/levmyshkin/glightbox.git",
+                "reference": "46fc2b518538f8f7a10e42ccc0dc4b1eb8096a46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/levmyshkin/glightbox/zipball/46fc2b518538f8f7a10e42ccc0dc4b1eb8096a46",
+                "reference": "46fc2b518538f8f7a10e42ccc0dc4b1eb8096a46",
+                "shasum": ""
+            },
+            "time": "2025-04-30T06:00:42+00:00",
+            "published-time": "2025-04-30T06:03:53+00:00",
+            "type": "drupal-library",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "GLightbox is a pure javascript lightbox",
+            "support": {
+                "source": "https://github.com/levmyshkin/glightbox/tree/3.3.1"
+            },
+            "funding": [
+                {
+                    "url": "https://buy.stripe.com/9AQbK2gPC5o73Fm7sz",
+                    "type": "custom"
+                }
+            ],
+            "install-path": "../../web/libraries/glightbox"
+        },
+        {
+            "name": "levmyshkin/plyr",
+            "version": "v3.7.9",
+            "version_normalized": "3.7.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/levmyshkin/plyr.git",
+                "reference": "de57098be7aa36958fbe52ea58a25b00339190ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/levmyshkin/plyr/zipball/de57098be7aa36958fbe52ea58a25b00339190ff",
+                "reference": "de57098be7aa36958fbe52ea58a25b00339190ff",
+                "shasum": ""
+            },
+            "time": "2024-11-14T10:56:55+00:00",
+            "published-time": "2024-11-14T10:57:35+00:00",
+            "type": "drupal-library",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Plyr is a simple, lightweight, accessible and customizable HTML5, YouTube and Vimeo media player that supports modern browsers.",
+            "support": {
+                "source": "https://github.com/levmyshkin/plyr/tree/v3.7.9"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sampotts",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/plyr",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/plyr",
+                    "type": "patreon"
+                }
+            ],
+            "install-path": "../../web/libraries/plyr"
         },
         {
             "name": "marc-mabe/php-enum",

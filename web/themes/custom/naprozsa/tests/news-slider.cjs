@@ -28,11 +28,27 @@ const assert = require('node:assert/strict');
       throw new Error(`Slider did not initialize. JavaScript errors: ${errors.join('; ')}`, { cause: error });
     }
     const initial = await page.evaluate(selector => window.jQuery(selector).data('cycle.opts').currSlide, slider);
+    assert.equal(await page.locator(`${pager}.active`).count(), 1, 'Initial slide must have an active pager dot');
+    assert.equal(await page.locator(pager).nth(initial).evaluate(item => item.classList.contains('active')), true, 'Initial pager must match current slide');
     const target = initial === 0 ? 1 : 0;
     await page.locator(pager).nth(target).click();
     await page.waitForFunction(({ selector, target }) => window.jQuery(selector).data('cycle.opts')?.currSlide === target, { selector: slider, target }, { timeout: 5000 });
+    const dots = await page.locator(pager).evaluateAll(items => items.map(item => {
+      const style = getComputedStyle(item.querySelector('.views-content-title'));
+      return { active: item.classList.contains('active'), background: style.backgroundColor, border: style.borderTopWidth, borderColor: style.borderTopColor };
+    }));
+    assert.equal(dots.filter(dot => dot.active).length, 1, 'Exactly one pager dot must be active');
+    assert.equal(dots[target].active, true, 'Selected pager dot must be active');
+    for (const dot of dots) {
+      assert.notEqual(dot.border, '0px', 'All pager dots need an outline');
+      assert.equal(dot.borderColor, 'rgb(2, 117, 174)', 'Pager outline must be blue');
+      assert.equal(dot.background, dot.active ? 'rgb(2, 117, 174)' : 'rgba(0, 0, 0, 0)', 'Only active dot should be filled');
+    }
     await page.mouse.move(1, 1);
     await page.waitForFunction(({ selector, target }) => window.jQuery(selector).data('cycle.opts')?.currSlide !== target, { selector: slider, target }, { timeout: 10000 });
+    const current = await page.evaluate(selector => window.jQuery(selector).data('cycle.opts').currSlide, slider);
+    assert.equal(await page.locator(`${pager}.active`).count(), 1, 'Autoplay must leave exactly one active pager dot');
+    assert.equal(await page.locator(pager).nth(current).evaluate(item => item.classList.contains('active')), true, 'Pager must track autoplay');
     assert.deepEqual(errors, [], `JavaScript errors: ${errors.join('; ')}`);
     console.log(`PASS: pager changed slide ${initial} -> ${target}, autoplay advanced, no JavaScript errors`);
   } finally {
