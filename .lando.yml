@@ -1,0 +1,65 @@
+name: naprozsad11
+recipe: drupal11
+
+config:
+  php: "8.3"
+  via: apache:2.4
+  database: mysql:8.4
+  composer_version: "2-latest"
+  drush: ^13
+  drush_uri: "https://naprozsad11.lndo.site/"
+  webroot: web
+
+services:
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+
+  mailhog:
+    type: mailhog
+    portforward: true
+    hogfrom:
+      - appserver
+
+  hermes:
+    api: 4
+    type: l337
+    image:
+      imagefile: ./docker/hermes/Dockerfile
+    command: sleep infinity
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    shm_size: "1gb"
+    environment:
+      HERMES_UID: "501"
+      HERMES_GID: "20"
+      HERMES_HOME: /opt/data
+      HERMES_WRITE_SAFE_ROOT: /workspace:/opt/data
+      COMPOSER_HOME: /opt/data/composer
+      DRUSH_OPTIONS_URI: "https://naprozsad11.lndo.site/"
+    volumes:
+      - ./:/workspace
+      - hermes-data:/opt/data
+
+tooling:
+  drush:
+    service: appserver
+    env:
+      DRUSH_OPTIONS_URI: "https://naprozsad11.lndo.site/"
+
+  hermes:
+    service: hermes
+    cmd: hermes
+    dir: /workspace
+    user: hermes
+
+  hermes-shell:
+    service: hermes
+    cmd: bash
+    dir: /workspace
+    user: hermes
+
+volumes:
+  hermes-data:

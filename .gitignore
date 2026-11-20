@@ -1,0 +1,7 @@
+/web/sites/default/files/
+/web/sites/default/settings.*
+.idea/
+.hermes/
+.lando/hermes/hermes.env
+/hermes-input/flats-export-with-files.zip
+/hermes-input/flats-export-with-files.zip

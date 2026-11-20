@@ -1,0 +1,25 @@
+<div class="layout-center">
+  <header class="header" role="banner">
+    {{ page.header }}
+  </header>
+
+  {% if page.navigation %}
+    <div class="navigation">{{ page.navigation }}</div>
+  {% endif %}
+
+  {{ page.highlighted }}
+  {{ page.breadcrumb }}
+  {{ page.help }}
+
+  <div class="page-layout{% if page.sidebar_first %} has-sidebar-first{% endif %}{% if page.sidebar_second %} has-sidebar-second{% endif %}">
+    <main class="page-main" role="main">
+      <a id="main-content" tabindex="-1"></a>
+      {{ page.content }}
+    </main>
+    {% if page.sidebar_first %}<aside class="sidebar sidebar-first">{{ page.sidebar_first }}</aside>{% endif %}
+    {% if page.sidebar_second %}<aside class="sidebar sidebar-second">{{ page.sidebar_second }}</aside>{% endif %}
+  </div>
+
+  {% if page.footer %}<footer class="site-footer" role="contentinfo">{{ page.footer }}</footer>{% endif %}
+</div>
+{{ page.bottom }}

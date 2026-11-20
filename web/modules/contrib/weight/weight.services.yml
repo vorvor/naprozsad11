@@ -1,0 +1,9 @@
+
+services:
+  Drupal\weight\Hook\WeightHooks:
+    class: Drupal\weight\Hook\WeightHooks
+    autowire: true
+
+  Drupal\weight\Hook\WeightViewsHooks:
+    class: Drupal\weight\Hook\WeightViewsHooks
+    autowire: true

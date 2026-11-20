@@ -1,0 +1,30 @@
+name: Naprózsa
+type: theme
+description: 'Drupal 11 theme adapted from the original Naprózsa Zen subtheme.'
+package: Custom
+core_version_requirement: ^11
+base theme: false
+logo: logo-front.png
+libraries:
+  - naprozsa/global
+libraries-extend:
+  views_slideshow_cycle/jquery_cycle:
+    - naprozsa/jquery-migrate
+  views_slideshow_cycle/views_slideshow_cycle:
+    - naprozsa/jquery-migrate
+regions:
+  header: Header
+  navigation: Navigation
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  help: Help
+  front_hero: Front page hero
+  front_properties: Front page properties
+  front_about: Front page about
+  front_contact: Front page contact
+  front_map: Front page map
+  content: Content
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  footer: Footer
+  bottom: Page bottom

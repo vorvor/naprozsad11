@@ -1,0 +1,129 @@
+/* Adapted from the Drupal 7 Naprózsa theme. */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: #222; background: #fff; font: 18px/1.55 Raleway, 'Open Sans', Arial, sans-serif; }
+a { color: #0275ae; }
+a:hover { color: #004e78; }
+a:focus-visible { outline: 3px solid #0275ae; outline-offset: 3px; }
+img { max-width: 100%; height: auto; }
+.layout-center { width: min(100% - 2rem, 1140px); margin-inline: auto; }
+.header { padding: 28px 35px 16px; }
+.branding { display: flex; align-items: center; gap: 28px; }
+.header__logo { flex: 0 0 100px; }
+.header__logo img { display: block; width: 100%; }
+.header__site-name { font-size: clamp(2rem, 5vw, 3.6em); line-height: 1.05; font-weight: 700; }
+.header__site-link { color: #222; text-decoration: none; }
+.header__site-link:hover { color: #0275ae; }
+.header__site-slogan { margin-top: 12px; font-size: clamp(1rem, 2.5vw, 2em); color: #0275ae; font-weight: 500; }
+.navigation { border-block: 1px solid #d7e4e9; }
+.navigation .menu { display: flex; flex-wrap: wrap; gap: 0; margin: 0; padding: 0; list-style: none; }
+.navigation .menu-item { margin: 0; padding: 0; }
+.navigation .menu a { display: block; padding: .8rem 1rem; color: #222; font-weight: 600; text-decoration: none; }
+.navigation .menu a:hover, .navigation .menu a.is-active { color: #0275ae; }
+.page-layout { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); padding-block: 1.5rem; }
+.page-main, .sidebar { min-width: 0; }
+h1, h2, h3 { line-height: 1.2; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.8rem, 3vw, 3rem); text-align: center; }
+h3 { margin: .5em 0; font-size: 1.3rem; }
+ul { margin-block: .5em; }
+.view-activities .views-row { display: flow-root; margin-bottom: 2rem; }
+.view-activities .views-field-field-illustration { float: left; width: min(240px, 38%); margin: 0 2.5rem 1rem 0; }
+.view-activities .views-field-field-illustration img, .view-news .views-field-field-image, .node--type-article .field--name-field-image img { box-shadow: 0 0 30px #0004; }
+.view-flats .view-content { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
+.view-flats .views-row { min-width: 0; }
+.view-flats .views-field-title h3 { margin: 0; }
+.view-flats .views-field-title a { text-decoration: none; }
+.view-flats .view-header { margin-bottom: 20px; }
+.view-news .views_slideshow_cycle_main .views-field-title a { position: absolute; right: 30px; bottom: 30px; z-index: 10; padding: 10px; color: #fff; background: #0009; font-size: clamp(1.2rem, 3vw, 40px); line-height: 1; text-decoration: none; text-transform: uppercase; font-weight: bold; }
+.view-news .views_slideshow_cycle_main .views-field-title a::after { content: ' >'; }
+.view-news .views-field-field-image { position: relative; line-height: 0; }
+.view-news .views_slideshow_cycle_slide .views-row { position: relative; }
+.view-news .views-field-field-image img { display: block; width: 100%; height: auto; }
+.view-news .views_slideshow_pager_field { display: flex; justify-content: center; gap: 1.5rem; margin: 20px 0; }
+.view-news .views_slideshow_pager_field_item { cursor: pointer; }
+.view-news .views_slideshow_pager_field_item .views-content-title { width: 14px; height: 14px; overflow: hidden; border-radius: 50%; background: #0275ae; text-indent: -9999px; }
+.node-flat .field--name-field-images .field__items { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.node-flat .field--name-field-images img { display: block; }
+.node-flat .field { margin-block: 1rem; }
+.flat-map { scroll-margin-top: 1rem; }
+.divider { height: 100px; margin-block: 1rem; border: 0; background: url('../images/wave.png') center / 100% 100% no-repeat; }
+.site-footer { padding-block: 2rem; }
+.site-footer iframe { max-width: 100%; }
+table { max-width: 100%; }
+@media (min-width: 800px) {
+  .page-layout.has-sidebar-first { grid-template-columns: minmax(180px, 1fr) minmax(0, 3fr); }
+  .page-layout.has-sidebar-first .sidebar-first { grid-column: 1; grid-row: 1; }
+  .page-layout.has-sidebar-first .page-main { grid-column: 2; }
+  .page-layout.has-sidebar-second { grid-template-columns: minmax(0, 3fr) minmax(180px, 1fr); }
+  .page-layout.has-sidebar-first.has-sidebar-second { grid-template-columns: minmax(160px, 1fr) minmax(0, 3fr) minmax(160px, 1fr); }
+}
+@media (max-width: 700px) {
+  .header { padding: 20px 0; }
+  .branding { gap: 16px; }
+  .header__logo { flex-basis: 21%; }
+  .view-flats .view-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  .view-activities .views-field-field-illustration { margin-right: 1rem; }
+  .node-flat .field--name-field-images .field__items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .divider { height: 54px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Front page, based on the supplied Naprózsa reference. */
+@font-face { font-family: Raleway; src: url('../fonts/raleway-regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: Raleway; src: url('../fonts/raleway-bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+body { font-family: Raleway, Arial, sans-serif; color: #222; }
+.layout-center { width: min(calc(100% - 40px), 1140px); }
+.header { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 35px 35px 22px; }
+.branding { gap: 34px; }
+.header__logo { flex-basis: 110px; }
+.header__site-name { font-size: clamp(2.3rem, 4.3vw, 4rem); font-weight: 700; letter-spacing: -.04em; }
+.header__site-slogan { margin: 6px 0 0 34px; font-size: clamp(1.1rem, 2.2vw, 2rem); font-weight: 400; }
+.header-contact { flex-shrink: 0; text-align: right; font-size: .88rem; line-height: 1.35; }
+.header-contact a { display: block; text-decoration: none; }
+.navigation { border: 0; }
+.navigation .menu { justify-content: center; column-gap: 2rem; }
+.navigation .menu a { padding: 13px 0; font-size: .88rem; font-weight: 700; text-transform: uppercase; }
+.navigation .menu .menu--sub { display: block; }
+.front-hero { margin: 0 auto 36px; }
+
+.front-section { padding: 0 0 36px; }
+.front-section h1, .front-section h2 { margin: 0 0 25px; text-align: center; font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 700; }
+.front-properties .view-header { margin-bottom: 26px; font-size: .95rem; }
+.front-properties .view-flats .view-content { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 44px; }
+.front-properties .view-flats .views-row { margin: 0; }
+.front-properties .views-field-title h3 { font-size: 1rem; line-height: 1.2; }
+.front-properties .views-field-title a { color: #222; }
+.front-properties .views-field-field-id { font-size: .87rem; line-height: 1.4; }
+.front-properties .views-label-field-id::after { content: ': '; white-space: pre; }
+.front-properties .views-field-field-images img { width: 100%; aspect-ratio: 1.5; object-fit: cover; display: block; }
+.front-wave { position: relative; width: 100vw; left: 50%; margin-left: -50vw; height: 62px; background: url('../images/wave.png') center / 100% 100% no-repeat; }
+.front-about { padding: 28px 0 25px; font-size: .95rem; }
+.front-about p { margin: 0 0 1.4rem; }
+.front-more { text-align: right; }
+.front-contact { padding: 28px 0 48px; text-align: center; }
+.front-contact p { margin: 0 0 1.4rem; }
+.front-contact > p { max-width: 760px; margin-inline: auto; }
+.front-contact a { font-size: 1.1rem; line-height: 1.6; text-decoration: none; font-weight: 700; }
+.front-map { width: 100vw; position: relative; left: 50%; margin-left: -50vw; }
+.front-map iframe { display: block; width: 100%; border: 0; }
+
+@media (max-width: 900px) {
+  .header { padding-inline: 0; }
+  .header__logo { flex-basis: 85px; }
+  .branding { gap: 20px; }
+  .header__site-slogan { margin-left: 0; }
+  .front-properties .view-flats .view-content { gap: 24px; }
+}
+@media (max-width: 700px) {
+  .layout-center { width: min(calc(100% - 28px), 1140px); }
+  .header { flex-wrap: wrap; padding: 20px 0 12px; }
+  .branding { width: 100%; }
+  .header-contact { width: 100%; text-align: center; font-size: .8rem; }
+  .navigation .menu { column-gap: 1rem; }
+  .navigation .menu a { font-size: .78rem; }
+
+  .front-properties .view-flats .view-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+  .front-wave { height: 40px; }
+  .front-contact a { font-size: 1.1rem; overflow-wrap: anywhere; }
+}

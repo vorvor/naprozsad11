@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function naprozsa_preprocess_page(array &$variables): void {
+  $variables['naprozsa_default_front_listing'] = \Drupal::routeMatch()->getRouteName() === 'view.frontpage.page_1';
+}

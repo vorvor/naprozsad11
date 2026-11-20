@@ -1,0 +1,12 @@
+<div{{ attributes.addClass('branding') }}>
+  {{ title_prefix }}{{ title_suffix }}
+  {% if site_logo %}
+    <a href="{{ path('<front>') }}" rel="home" class="header__logo"><img src="{{ site_logo }}" alt="{{ 'Home'|t }}"></a>
+  {% endif %}
+  {% if site_name or site_slogan %}
+    <div class="header__name-and-slogan">
+      {% if site_name %}<div class="header__site-name"><a class="header__site-link" href="{{ path('<front>') }}" rel="home">{{ site_name }}</a></div>{% endif %}
+      <div class="header__site-slogan">{{ site_slogan ?: 'Karnyújtásnyira a Dunától!'|t }}</div>
+    </div>
+  {% endif %}
+</div>

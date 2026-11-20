@@ -1,0 +1,15 @@
+{% import _self as menus %}
+{{ menus.links(items, attributes, 0) }}
+{% macro links(items, attributes, level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if level == 0 %}<ul{{ attributes.addClass('menu') }}>{% else %}<ul class="menu menu--sub">{% endif %}
+    {% for item in items %}
+      <li{{ item.attributes.addClass('menu-item', item.in_active_trail ? 'menu-item--active-trail') }}>
+        {{ link(item.title, item.url) }}
+        {% if item.below %}{{ menus.links(item.below, attributes, level + 1) }}{% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

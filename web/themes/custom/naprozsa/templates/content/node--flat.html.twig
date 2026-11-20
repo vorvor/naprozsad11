@@ -1,0 +1,21 @@
+<article{{ attributes.addClass('node-flat') }}>
+  {{ title_prefix }}
+  {% if label and view_mode != 'full' %}<h2{{ title_attributes }}><a href="{{ url }}" rel="bookmark">{{ label }}</a></h2>{% endif %}
+  {{ title_suffix }}
+  <div{{ content_attributes }}>
+    {{ content.field_id }}
+    {{ content.field_images }}
+    {{ content.field_prenote }}
+    {{ content.field_basic_data }}
+    {% if content.field_map %}<p><a class="map-anchor" href="#flat-map">{{ 'Elhelyezkedés a lakóparkban.'|t }}</a></p>{% endif %}
+    {{ content.field_facilities }}
+    {{ content.field_technical_description }}
+    {{ content.field_notes }}
+    {{ content.field_price }}
+    {{ content.field_attachments }}
+    {% if content.field_map %}<div id="flat-map" class="flat-map">{{ content.field_map }}</div>{% endif %}
+    {{ content|without('field_id', 'field_images', 'field_prenote', 'field_basic_data', 'field_facilities', 'field_technical_description', 'field_notes', 'field_price', 'field_attachments', 'field_map', 'links', 'comment') }}
+    {{ content.links }}
+    {{ content.comment }}
+  </div>
+</article>

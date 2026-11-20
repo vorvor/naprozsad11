@@ -1,0 +1,20 @@
+# Based on the gitlab_templates default. The migrate field plugin is excluded
+# because migrate_drupal is not in Drupal 12 core; analyse it again once
+# Drupal 11 is no longer supported. Inline ignores for the Drupal 11 shims
+# only match on one major, hence reportUnmatchedIgnoredErrors.
+parameters:
+    level: 0
+    fileExtensions:
+        - php
+        - module
+        - inc
+        - install
+        - theme
+        - profile
+    reportUnmatchedIgnoredErrors: false
+    excludePaths:
+        analyse:
+            - src/Plugin/migrate/field/d7/Weight.php
+    ignoreErrors:
+        # new static() is a best practice in Drupal, so we cannot fix that.
+        - "#^Unsafe usage of new static#"
