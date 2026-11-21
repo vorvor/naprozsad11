@@ -13,16 +13,11 @@
       <h1>{{ 'Eladó házak'|t }}</h1>
       {{ page.front_properties }}
     </section>
-    <div class="front-wave" aria-hidden="true"></div>
     <section id="rolunk" class="front-section front-about">
-      {% if page.front_about %}
+      <div class="front-about__content">
         {{ page.front_about }}
-      {% else %}
-        <h2>{{ 'Rólunk'|t }}</h2>
-        <p>A <strong>Dunavarsány 2000 Kft</strong> 1996-ban indította el a <strong>Naprózsa Lakópark projektet</strong>. A telekalakítások után 1997-ben kezdtük el a közművesítést. A Kft saját szervezésében és lebonyolításával valósult meg a négy alap közműn (víz, gáz, villamos energia, szennyvíz) kívül a telefon, internet és a kábel-tv hálózat is. Az első épület 2000-ben készült, azóta <strong>már több mint 70 család</strong> él a lakóparkban.</p>
-        <p><strong>Miért érdemes ide költöznie?</strong> Friss levegő, saját kert... szabaduljon ki a nagyvárosi forgalomból!</p>
-        <p class="front-more"><a href="{{ path('view.activities.page') }}">{{ 'Bővebben'|t }}</a></p>
-      {% endif %}
+        {% if page.front_about_features %}<div class="front-about__features">{{ page.front_about_features }}</div>{% endif %}
+      </div>
     </section>
     <div class="front-wave" aria-hidden="true"></div>
     {% include '@naprozsa/partials/front-contact.html.twig' %}

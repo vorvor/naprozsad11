@@ -21,6 +21,7 @@ regions:
   front_hero: Front page hero
   front_properties: Front page properties
   front_about: Front page about
+  front_about_features: Front page about features
   front_contact: Front page contact
   front_map: Front page map
   content: Content
