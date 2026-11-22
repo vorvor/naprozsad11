@@ -8,11 +8,15 @@
   {{ page.help }}
   <main class="front-main" role="main">
     <a id="main-content" tabindex="-1"></a>
-    {% if page.front_hero %}<div class="front-hero">{{ page.front_hero }}</div>{% endif %}
+    {% if page.front_hero %}
+      <div class="front-wave" aria-hidden="true"></div>
+      <div class="front-hero">{{ page.front_hero }}</div>
+    {% endif %}
     <section id="elado-hazak" class="front-section front-properties">
       <h1>{{ 'Eladó házak'|t }}</h1>
       {{ page.front_properties }}
     </section>
+    <div class="front-wave" aria-hidden="true"></div>
     <section id="rolunk" class="front-section front-about">
       <div class="front-about__content">
         {{ page.front_about }}
